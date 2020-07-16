@@ -60,6 +60,101 @@ public class ChairsPlugin extends JavaPlugin implements Listener {
             Material.OAK_WALL_SIGN,
             Material.SPRUCE_WALL_SIGN);
 
+    public static List<Material> SLABS = Arrays.asList(Material.OAK_SLAB,
+            Material.SPRUCE_SLAB,
+            Material.BIRCH_SLAB,
+            Material.JUNGLE_SLAB,
+            Material.ACACIA_SLAB,
+            Material.DARK_OAK_SLAB,
+            Material.CRIMSON_SLAB,
+            Material.WARPED_SLAB,
+            Material.STONE_SLAB,
+            Material.SMOOTH_STONE_SLAB,
+            Material.SANDSTONE_SLAB,
+            Material.SMOOTH_SANDSTONE_SLAB,
+            Material.PETRIFIED_OAK_SLAB,
+            Material.COBBLESTONE_SLAB,
+            Material.BRICK_SLAB,
+            Material.STONE_BRICK_SLAB,
+            Material.NETHER_BRICK_SLAB,
+            Material.QUARTZ_SLAB,
+            Material.RED_SANDSTONE_SLAB,
+            Material.SMOOTH_RED_SANDSTONE_SLAB,
+            Material.PURPUR_SLAB,
+            Material.PRISMARINE_SLAB,
+            Material.PRISMARINE_BRICK_SLAB,
+            Material.DARK_PRISMARINE_SLAB,
+            Material.POLISHED_GRANITE_SLAB,
+            Material.CUT_RED_SANDSTONE_SLAB,
+            Material.MOSSY_STONE_BRICK_SLAB,
+            Material.POLISHED_DIORITE_SLAB,
+            Material.MOSSY_COBBLESTONE_SLAB,
+            Material.END_STONE_BRICK_SLAB,
+            Material.SMOOTH_SANDSTONE_SLAB,
+            Material.SMOOTH_QUARTZ_SLAB,
+            Material.GRANITE_SLAB,
+            Material.ANDESITE_SLAB,
+            Material.RED_NETHER_BRICK_SLAB,
+            Material.POLISHED_ANDESITE_SLAB,
+            Material.DIORITE_SLAB,
+            Material.BLACKSTONE_SLAB,
+            Material.POLISHED_BLACKSTONE_SLAB,
+            Material.POLISHED_BLACKSTONE_BRICK_SLAB);
+
+    public static List<Material> STAIRS = Arrays.asList(Material.PURPUR_STAIRS,
+            Material.OAK_STAIRS,
+            Material.COBBLESTONE_STAIRS,
+            Material.BRICK_STAIRS,
+            Material.STONE_BRICK_STAIRS,
+            Material.NETHER_BRICK_STAIRS,
+            Material.SANDSTONE_STAIRS,
+            Material.SPRUCE_STAIRS,
+            Material.BIRCH_STAIRS,
+            Material.JUNGLE_STAIRS,
+            Material.CRIMSON_STAIRS,
+            Material.WARPED_STAIRS,
+            Material.QUARTZ_STAIRS,
+            Material.ACACIA_STAIRS,
+            Material.DARK_OAK_STAIRS,
+            Material.PRISMARINE_STAIRS,
+            Material.PRISMARINE_BRICK_STAIRS,
+            Material.DARK_PRISMARINE_STAIRS,
+            Material.RED_SANDSTONE_STAIRS,
+            Material.POLISHED_GRANITE_STAIRS,
+            Material.SMOOTH_RED_SANDSTONE_STAIRS,
+            Material.MOSSY_STONE_BRICK_STAIRS,
+            Material.POLISHED_DIORITE_STAIRS,
+            Material.MOSSY_COBBLESTONE_STAIRS,
+            Material.END_STONE_BRICK_STAIRS,
+            Material.STONE_STAIRS,
+            Material.SMOOTH_SANDSTONE_STAIRS,
+            Material.SMOOTH_QUARTZ_STAIRS,
+            Material.GRANITE_STAIRS,
+            Material.ANDESITE_STAIRS,
+            Material.RED_NETHER_BRICK_STAIRS,
+            Material.POLISHED_ANDESITE_STAIRS,
+            Material.DIORITE_STAIRS,
+            Material.BLACKSTONE_STAIRS,
+            Material.POLISHED_BLACKSTONE_STAIRS,
+            Material.POLISHED_BLACKSTONE_BRICK_STAIRS);
+
+    public static List<Material> CARPET = Arrays.asList(Material.WHITE_CARPET,
+            Material.ORANGE_CARPET,
+            Material.MAGENTA_CARPET,
+            Material.LIGHT_BLUE_CARPET,
+            Material.YELLOW_CARPET,
+            Material.LIME_CARPET,
+            Material.PINK_CARPET,
+            Material.GRAY_CARPET,
+            Material.LIGHT_GRAY_CARPET,
+            Material.CYAN_CARPET,
+            Material.PURPLE_CARPET,
+            Material.BLUE_CARPET,
+            Material.BROWN_CARPET,
+            Material.GREEN_CARPET,
+            Material.RED_CARPET,
+            Material.BLACK_CARPET);
+
     public static NMS getNMS() {
         return nms;
     }
@@ -73,22 +168,6 @@ public class ChairsPlugin extends JavaPlugin implements Listener {
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
-        new SlabBlock(Material.STONE_SLAB, (short) 0, "stone_slab");
-        new SlabBlock(Material.SANDSTONE_SLAB, (short) 1, "sandstone_slab");
-        new SlabBlock(Material.COBBLESTONE_SLAB, (short) 3, "cobblestone_slab");
-        new SlabBlock(Material.BRICK_SLAB, (short) 4, "bricks_slab");
-        new SlabBlock(Material.STONE_BRICK_SLAB, (short) 5, "stone_bricks_slab");
-        new SlabBlock(Material.NETHER_BRICK_SLAB, (short) 6, "nether_brick_slab");
-        new SlabBlock(Material.QUARTZ_SLAB, (short) 7, "quartz_slab");
-        new SlabBlock(Material.OAK_SLAB, (short) 0, "oak_wood_slab");
-        new SlabBlock(Material.SPRUCE_SLAB, (short) 1, "spruce_wood_slab");
-        new SlabBlock(Material.BIRCH_SLAB, (short) 2, "birch_wood_slab");
-        new SlabBlock(Material.JUNGLE_SLAB, (short) 3, "jungle_wood_slab");
-        new SlabBlock(Material.ACACIA_SLAB, (short) 4, "acacia_wood_slab");
-        new SlabBlock(Material.DARK_OAK_SLAB, (short) 5, "dark_oak_wood_slab");
-        new SlabBlock(Material.RED_SANDSTONE_SLAB, (short) 0, "red_sandstone_slab");
-        new SlabBlock(Material.PURPUR_SLAB, (short) 0, "purpur_slab");
-        new SlabBlock(Material.PRISMARINE_BRICK_SLAB, (short) 0, "prismarine_brick_slab");
         Config.init();
         Messages.init();
         getCommand("betterchairsreload").setExecutor(new CmdReload());
@@ -160,11 +239,8 @@ public class ChairsPlugin extends JavaPlugin implements Listener {
         //Check if the stairs face down
         if (b.getState().getData().toItemStack().getDurability() > 3)
             return;
-        //Check if the stairs if the stairs is valide
-        if (StairsBlock.from(b.getType()) == null)
-            return;
         //Check if the stairs is enable
-        if (!getConfig().getStringList("Enable Stairs Block").contains(StairsBlock.from(b.getType())))
+        if (!getConfig().getStringList("Enable Stairs Block").contains(b.getType().name().toLowerCase()))
             return;
         //Check if the player sneak
         if (p.isSneaking())
@@ -174,7 +250,7 @@ public class ChairsPlugin extends JavaPlugin implements Listener {
             short data = b.getState().getData().toItemStack().getDurability();
             Block right = b.getRelative(data == 0 ? BlockFace.SOUTH : data == 1 ? BlockFace.NORTH : data == 2 ? BlockFace.WEST : BlockFace.EAST);
             Block left = b.getRelative(data == 0 ? BlockFace.NORTH : data == 1 ? BlockFace.SOUTH : data == 2 ? BlockFace.EAST : BlockFace.WEST);
-            if (!((WALL_SIGNS.contains(right.getType()) || getConfig().getStringList("Enable Stairs Block").contains(StairsBlock.from(right.getType()))) && (WALL_SIGNS.contains(left.getType()) || getConfig().getStringList("Enable Stairs Block").contains(StairsBlock.from(left.getType()))))) {
+            if (!((WALL_SIGNS.contains(right.getType()) || getConfig().getStringList("Enable Stairs Block").contains(right.getType().name().toLowerCase())) && (WALL_SIGNS.contains(left.getType()) || getConfig().getStringList("Enable Stairs Block").contains(left.getType().name().toLowerCase())))) {
                 if (getConfig().getBoolean("Send message if the Chairs need sign or chair", false)) {
                     p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.getConfig().getString("Message to send if the chairs need sign or chair", "&cIf you want to sit on this stairs you need to place a sign or stairs on each side")));
                 }
@@ -294,21 +370,17 @@ public class ChairsPlugin extends JavaPlugin implements Listener {
             return;
         if (!e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
             return;
-        if (!getConfig().getBoolean("Use slab"))
-            return;
         Block b = e.getClickedBlock();
-        SlabBlock slabBlock = null;
-        for (SlabBlock slab : SlabBlock.getList()) {
-            if (!slab.getType().equals(b.getType()))
-                continue;
-            if (!slab.getData().equals(b.getState().getData().toItemStack().getDurability()))
+        Material slabBlock = null;
+        for (Material slab : SLABS) {
+            if (!slab.equals(b.getType()))
                 continue;
             slabBlock = slab;
             break;
         }
         if (slabBlock == null)
             return;
-        if (!getConfig().getStringList("Enable Slab Block").contains(slabBlock.getName()))
+        if (!getConfig().getStringList("Enable Slab Block").contains(slabBlock.name().toLowerCase()))
             return;
         if (p.isSneaking())
             return;
@@ -350,29 +422,114 @@ public class ChairsPlugin extends JavaPlugin implements Listener {
         }
         if (ChairsConf.isSit(p))
             return;
-        
-        PlayerEnteringChairEvent event = new PlayerEnteringChairEvent(p, ChairType.SLAP, b);
-		Bukkit.getPluginManager().callEvent(event);
 
-		if (!event.isCancelled()) {
-			Location pLoc = p.getLocation();
-			ArmorStand stand = nms.spawn(loc, p);
-			list.put(getEntityId(stand), new ChairsConf(b.getState(), p, pLoc));
-			if (Config.getConfig().getBoolean("Send message when player sit", false)) {
-				if (!uuidList.contains(p.getUniqueId()))
-					p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.getConfig()
-							.getString("Message to send when player sit", "&aYou are now sitting. Take a break.")));
-				uuidList.add(p.getUniqueId());
-				final Player pf = p;
-				new BukkitRunnable() {
-					@Override
-					public void run() {
-						if (uuidList.contains(pf.getUniqueId()))
-							uuidList.remove(pf.getUniqueId());
-					}
-				}.runTaskLater(this, 2L);
-			}
-		}
+        PlayerEnteringChairEvent event = new PlayerEnteringChairEvent(p, ChairType.SLAB, b);
+        Bukkit.getPluginManager().callEvent(event);
+
+        if (!event.isCancelled()) {
+            Location pLoc = p.getLocation();
+            ArmorStand stand = nms.spawn(loc, p);
+            list.put(getEntityId(stand), new ChairsConf(b.getState(), p, pLoc));
+            if (Config.getConfig().getBoolean("Send message when player sit", false)) {
+                if (!uuidList.contains(p.getUniqueId()))
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.getConfig()
+                            .getString("Message to send when player sit", "&aYou are now sitting. Take a break.")));
+                uuidList.add(p.getUniqueId());
+                final Player pf = p;
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        if (uuidList.contains(pf.getUniqueId()))
+                            uuidList.remove(pf.getUniqueId());
+                    }
+                }.runTaskLater(this, 2L);
+            }
+        }
+    }
+
+    @EventHandler
+    public void carpetSpawn(PlayerInteractEvent e) {
+        //Same of chairsSpawn but for carpet
+        Player p = e.getPlayer();
+        if (disableList.contains(p.getUniqueId()))
+            return;
+        if (!e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
+            return;
+        Block b = e.getClickedBlock();
+        Material carpetBlock = null;
+        for (Material carpet : CARPET) {
+            if (!carpet.equals(b.getType()))
+                continue;
+            carpetBlock = carpet;
+            break;
+        }
+        if (carpetBlock == null)
+            return;
+        if (!getConfig().getStringList("Enable Carpet Block").contains(carpetBlock.name().toLowerCase()))
+            return;
+        if (p.isSneaking())
+            return;
+        if (getConfig().getBoolean("No item in hand")) {
+            if (!(nms.getVersion().equals("v1_9_R1") || nms.getVersion().equals("v1_9_R2") || nms.getVersion().equals("v1_10_R1") || nms.getVersion().equals("v1_11_R1"))) {
+                if (p.getItemInHand().getType() != Material.AIR)
+                    return;
+            } else {
+                if (p.getInventory().getItemInMainHand().getType() != Material.AIR || p.getInventory().getItemInOffHand().getType() != Material.AIR)
+                    return;
+            }
+        }
+        e.setCancelled(true);
+        if (Config.getConfig().getBoolean("Use permission for sit", false)) {
+            if (!p.hasPermission("betterchairs.use")) {
+                if (!uuidList.contains(p.getUniqueId()))
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.getConfig().getString("Cant use message")));
+                uuidList.add(p.getUniqueId());
+                final Player pf = p;
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        if (uuidList.contains(pf.getUniqueId()))
+                            uuidList.remove(pf.getUniqueId());
+                    }
+                }.runTaskLater(this, 2L);
+                return;
+            }
+        }
+        if (!isValidWorld(p))
+            return;
+        Location loc = b.getLocation().add(0.5, -1.6, 0.5);
+        if (p.getLocation().distance(b.getLocation().add(0.5, 0, 0.5)) >= Config.getConfig().getDouble("Distance of the stairs", 2.0))
+            return;
+        if (ChairsConf.isUsed(b.getState())) {
+            if (Config.getConfig().getBoolean("Send message if the chairs is already occupied", false))
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.getConfig().getString("Message to send if the chairs is occupied")));
+            return;
+        }
+        if (ChairsConf.isSit(p))
+            return;
+
+        PlayerEnteringChairEvent event = new PlayerEnteringChairEvent(p, ChairType.CARPET, b);
+        Bukkit.getPluginManager().callEvent(event);
+
+        if (!event.isCancelled()) {
+            Location pLoc = p.getLocation();
+            ArmorStand stand = nms.spawn(loc, p);
+            list.put(getEntityId(stand), new ChairsConf(b.getState(), p, pLoc));
+            if (Config.getConfig().getBoolean("Send message when player sit", false)) {
+                if (!uuidList.contains(p.getUniqueId()))
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.getConfig()
+                            .getString("Message to send when player sit", "&aYou are now sitting. Take a break.")));
+                uuidList.add(p.getUniqueId());
+                final Player pf = p;
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        if (uuidList.contains(pf.getUniqueId()))
+                            uuidList.remove(pf.getUniqueId());
+                    }
+                }.runTaskLater(this, 2L);
+            }
+        }
     }
 
     /**

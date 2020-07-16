@@ -2,6 +2,7 @@ main: net.blackscarx.betterchairs.ChairsPlugin
 name: BetterChairs
 version: 0.10.2
 author: BlackScarx
+api-version: 1.13
 commands:
   betterchairsreload:
     aliases: [bcreload, bcr]

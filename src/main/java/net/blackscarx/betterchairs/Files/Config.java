@@ -5,8 +5,7 @@
 package net.blackscarx.betterchairs.Files;
 
 import net.blackscarx.betterchairs.ChairsPlugin;
-import net.blackscarx.betterchairs.SlabBlock;
-import net.blackscarx.betterchairs.StairsBlock;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -29,25 +28,31 @@ public class Config {
 
     private static void load() {
         List<String> stairs = new ArrayList<>();
-        for (StairsBlock stairsBlock : StairsBlock.values()) {
-            stairs.add(stairsBlock.getName());
+        for (Material stairsBlock : ChairsPlugin.STAIRS) {
+            stairs.add(stairsBlock.name().toLowerCase());
         }
-        List<String> slab = new ArrayList<>();
-        for (SlabBlock slabBlock : SlabBlock.getList())
-            slab.add(slabBlock.getName());
+        List<String> slabs = new ArrayList<>();
+        for (Material slabBlock : ChairsPlugin.SLABS)
+            slabs.add(slabBlock.name().toLowerCase());
+        List<String> carpet = new ArrayList<>();
+        for (Material carpetBlock : ChairsPlugin.CARPET)
+            carpet.add(carpetBlock.name().toLowerCase());
         String header = "BlackScarx All right reserved\n";
         header = header.concat("The list of the stairs\n");
         for (String s : stairs)
             header = header.concat("    - " + s + "\n");
         header = header.concat("The list of the slabs\n");
-        for (SlabBlock s : SlabBlock.getList())
-            header = header.concat("    - " + s.getName() + "\n");
+        for (String s : slabs)
+            header = header.concat("    - " + s + "\n");
+        header = header.concat("The list of the carpet\n");
+        for (String s : carpet)
+            header = header.concat("    - " + s + "\n");
         getConfig().options().header(header);
         getConfig().addDefault("Update Checker", true);
         getConfig().addDefault("Use permission for sit", false);
         getConfig().addDefault("Enable Stairs Block", stairs);
-        getConfig().addDefault("Use slab", false);
-        getConfig().addDefault("Enable Slab Block", slab);
+        getConfig().addDefault("Enable Slab Block", slabs);
+        getConfig().addDefault("Enable Carpet Block", carpet);
         getConfig().addDefault("Send message when player sit", false);
         getConfig().addDefault("Send message if the chairs is already occupied", false);
         getConfig().addDefault("Send message if the word is disable", false);
